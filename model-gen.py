@@ -8,7 +8,7 @@ import os
 
 
 
-MODEL = 'build'
+MODEL = 'build/1'
 DATASET = 'iris.data'
 OUTPUT = ['Iris-setosa', 'Iris-versicolor', 'Iris-virginica']
 FEATURES = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width']
@@ -77,7 +77,7 @@ print('%d train rows, %d test rows' % (len(train_x), len(test_x)))
 
 print('\ndefining ann:')
 serialized = tf.placeholder(tf.string, name='tf_example')
-features = dict((k, tf.FixedLenFeature(shape=1, dtype=tf.string)) for k in FEATURES)
+features = dict((k, tf.FixedLenFeature(shape=1, dtype=tf.float32)) for k in FEATURES)
 table = tf.contrib.lookup.index_to_string_table_from_tensor(tf.constant(OUTPUT))
 example = tf.parse_example(serialized, features)
 example_x = tf.concat([tf.to_float(example[k]) for k in FEATURES], 1)
