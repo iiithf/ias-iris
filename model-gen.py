@@ -24,7 +24,7 @@ def lookup_table(lst):
 
 def input_numbers(row):
   numbers = np.zeros(4)
-  for i in range(len(FEATURES)):
+  for i in range(4):
     numbers[i] = row[i]
   return numbers
 
@@ -48,6 +48,7 @@ def get_data(name, test_per):
   x, y = ([], [])
   with open(name, 'r') as f:
     for row in csv.reader(f):
+      if len(row)==0: continue
       x.append(input_numbers(row))
       y.append(output_numbers(row[4]))
   x, y = shuffle(x, y)
