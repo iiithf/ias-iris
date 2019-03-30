@@ -9,7 +9,7 @@ import os
 
 
 
-MODEL = 'build/1'
+MODEL = 'build'
 DATASET = 'iris.data'
 OUTPUT = ['Iris-setosa', 'Iris-versicolor', 'Iris-virginica']
 FEATURES = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width']
